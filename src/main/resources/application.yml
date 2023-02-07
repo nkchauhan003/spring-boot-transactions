@@ -1,4 +1,4 @@
-## default connection pool
+## datasource
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/spring-boot-transactions
@@ -12,18 +12,9 @@ spring:
       ddl-auto: update
     database:
       platform: org.hibernate.dialect.PostgreSQLDialect
-
   # SWAGGER
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
   api-docs:
     path: /v1/api-docs
-  
-  # postgresql
-spring.datasource.url=jdbc:postgresql://localhost:5432/postgres
-spring.datasource.username=postgres
-spring.datasource.password=root
-  
-  # schema name in postgreSQL -> 'boot_postgres'
-spring.jpa.properties.hibernate.default_schema=bootPostgres
