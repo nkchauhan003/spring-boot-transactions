@@ -1,11 +1,14 @@
 package com.codeburps.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Set;
 
 @Entity
 @Table(name = "CB_ORDER")
+@Getter @Setter
 public class Order {
 
     @Id
@@ -28,4 +31,10 @@ public class Order {
 
     @Column(name = "VALUE")
     private double value;
+
+    public Order(User user, Set<Item> items, double value) {
+        this.user = user;
+        this.items = items;
+        this.value = value;
+    }
 }
