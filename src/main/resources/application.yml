@@ -23,3 +23,7 @@ springdoc:
     path: /swagger-ui.html
   api-docs:
     path: /v1/api-docs
+# LOGGING
+logging:
+  level:
+    org.springframework.transaction: TRACE

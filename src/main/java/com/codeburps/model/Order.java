@@ -22,7 +22,7 @@ public class Order {
 
     // One to many unidirectional mapping
     // Default fetch type for OneToMany: LAZY
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
             name = "ORDER_ITEMS",
             joinColumns = @JoinColumn(name = "ORDER_ID"),
