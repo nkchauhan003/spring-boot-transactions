@@ -3,6 +3,7 @@ package com.codeburps.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Set;
@@ -10,6 +11,7 @@ import java.util.Set;
 @Entity
 @Table(name = "CB_USER")
 @Getter @Setter
+@NoArgsConstructor
 public class User {
 
     @Id
@@ -23,4 +25,8 @@ public class User {
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     @JsonIgnore
     private Set<Order> orders;
+
+    public User(double walletAmount) {
+        this.walletAmount = walletAmount;
+    }
 }

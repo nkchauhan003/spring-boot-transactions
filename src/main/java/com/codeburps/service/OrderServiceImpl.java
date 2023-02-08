@@ -1,6 +1,6 @@
 package com.codeburps.service;
 
-import com.codeburps.dto.ItemDto;
+import com.codeburps.dto.OrderItem;
 import com.codeburps.dto.OrderDto;
 import com.codeburps.exception.InsufficientFundException;
 import com.codeburps.exception.ItemNotAvailableException;
@@ -30,7 +30,7 @@ public class OrderServiceImpl implements OrderService {
     @Transactional
     public void addOrder(OrderDto order) {
         var orderItems = order.getItems();
-        var orderItemsIds = orderItems.stream().map(ItemDto::getItemId).collect(Collectors.toSet());
+        var orderItemsIds = orderItems.stream().map(OrderItem::getItemId).collect(Collectors.toSet());
 
         // get order items from db
         var dbItems = itemRepository.findByIdIn(orderItemsIds);

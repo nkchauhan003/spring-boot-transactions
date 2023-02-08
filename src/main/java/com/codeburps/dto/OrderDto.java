@@ -9,5 +9,5 @@ import java.util.Set;
 public class OrderDto {
 
     private int userId;
-    private Set<ItemDto> items;
+    private Set<OrderItem> items;
 }
