@@ -11,7 +11,7 @@ import java.util.Set;
 
 @Repository
 public interface ItemRepository extends JpaRepository<Item, Integer> {
-    Set<Item> findByIdIn(Set<Integer> ids);
+    Set<Item> findByItemIdIn(Set<Integer> ids);
 
     @Modifying
     @Query("update Item i set i.availableQuantity = :availableQuantity where i.itemId = :itemId")

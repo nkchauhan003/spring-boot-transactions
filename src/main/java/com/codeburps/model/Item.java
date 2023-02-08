@@ -17,7 +17,7 @@ public class Item {
     private int itemId;
 
     @Column(name = "NAME")
-    private int name;
+    private String name;
 
     @Column(name = "PRICE")
     private int price;
@@ -25,7 +25,7 @@ public class Item {
     @Column(name = "AVAILABLE_QUANTITY")
     private int availableQuantity;
 
-    public Item(int name, int price, int availableQuantity) {
+    public Item(String name, int price, int availableQuantity) {
         this.name = name;
         this.price = price;
         this.availableQuantity = availableQuantity;

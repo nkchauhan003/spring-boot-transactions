@@ -11,10 +11,12 @@ import com.codeburps.repository.ItemRepository;
 import com.codeburps.repository.OrderRepository;
 import com.codeburps.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.stream.Collectors;
 
+@Service
 public class OrderServiceImpl implements OrderService {
 
     @Autowired
@@ -33,7 +35,7 @@ public class OrderServiceImpl implements OrderService {
         var orderItemsIds = orderItems.stream().map(OrderItem::getItemId).collect(Collectors.toSet());
 
         // get order items from db
-        var dbItems = itemRepository.findByIdIn(orderItemsIds);
+        var dbItems = itemRepository.findByItemIdIn(orderItemsIds);
         var dbItemsMap = dbItems.stream().collect(
                 Collectors.toMap(Item::getItemId, item -> item));
 
